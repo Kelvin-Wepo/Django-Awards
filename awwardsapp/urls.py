@@ -14,8 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from django.contrib.auth import views as auth_views
+from awwards import views as awwards_views
+from rest_framework.authtoken.views import obtain_auth_token
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('awwards.urls')),
+    path('tinymce /', include('tinymce.urls')),
+    path('accounts/register/',awwards_views.register, name='register'),
+    path('accounts/login/',auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
+    path('logout/',auth_views.LogoutView.as_view(), name='logout'),
+    path('api-token-auth/', obtain_auth_token),
+    path('social-auth/',include('social_django.urls',namespace='social')),
 ]
+
+
+
+
