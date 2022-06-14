@@ -125,7 +125,7 @@ def user_profile(request, username):
     user_posts = user_poster.posts.all()
     
     
-    return render(request, 'all-awards/poster.html', {'user_poster': user_poster,'user_posts':user_posts,'post_form':post_form,'current_user':current_user})
+    return render(request, 'all awards/poster.html', {'user_poster': user_poster,'user_posts':user_posts,'post_form':post_form,'current_user':current_user})
 
 @login_required(login_url='login')
 def profile(request, username):
@@ -153,7 +153,7 @@ def profile(request, username):
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateUserProfileForm(instance=request.user.profile)
 
-    return render(request, 'all-awards/profile.html', {'user_form':user_form,'profile_form':profile_form,'posts':posts,'post_form':post_form})
+    return render(request, 'All awards/profile.html', {'user_form':user_form,'profile_form':profile_form,'posts':posts,'post_form':post_form})
 
 @login_required(login_url='login')
 def search_project(request):
@@ -161,7 +161,7 @@ def search_project(request):
         title = request.GET.get("title")
         posts = Post.objects.filter(title__icontains=title).all()
 
-    return render(request, 'all-awards/search.html', {'posts': posts})
+    return render(request, 'All awards/search.html', {'posts': posts})
 
    
 class ProfileViewSet(viewsets.ModelViewSet):
