@@ -86,7 +86,7 @@
     {% for post in posts %}
     <div class="col-md-4 mt-4">
         <div class="card">
-            <a href="{% url 'project' post.title %}"><img class="card-img-top" src="{{ post.photo.url }}" alt="Card image cap" height="250"></a>
+            <a href="{% url 'project' post.title %}"><img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap" height="250"></a>
             
             <div class="card-body pt-5">
               <h6 class="card-title text-sm"><a href="{% url 'project' post.title %}" class="link-color font-weight-bold">{{post.title|title}}</a>
@@ -94,7 +94,7 @@
             </h6>
             </div>
             <div class="card-footer">
-                <a href="{% url 'user_profile' post.user.username  %}"> <img src="{{post.user.profile.profile_pic.url}}"  alt= "" class="rounded-circle user profile-img"> {{post.user.username|title}}</a> <span style="float:right">{{post.upload_date|date}}</span>
+                <a href="{% url 'user_profile' post.user.username  %}"> <img src="{{post.user.profile.profile_image.url}}"  alt= "" class="rounded-circle user profile-img"> {{post.user.username|title}}</a> <span style="float:right">{{post.upload_date|date}}</span>
             </div>
           </div>
     </div>

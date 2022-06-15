@@ -55,6 +55,7 @@ def register(request):
 
 @login_required(login_url='login')
 def project(request, post):
+    posts=Post.objects.all()
     post = Post.objects.get(title=post)
     ratings = Rating.objects.filter(user=request.user, post=post).first()
     rating_status = None
@@ -103,7 +104,7 @@ def project(request, post):
             return HttpResponseRedirect(request.path_info)
     else:
         form = RatingForm()
-    return render(request, 'All awards/project.html', {'post': post,'rating_form': form,'rating_status': rating_status,'current_user':current_user,'post_form':post_form})
+    return render(request, 'All awards/project.html', {'post': post,'posts': posts,'rating_form': form,'rating_status': rating_status,'current_user':current_user,'post_form':post_form})
 
 @login_required(login_url='login')
 def user_profile(request, username):

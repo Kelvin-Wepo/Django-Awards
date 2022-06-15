@@ -4,6 +4,9 @@ from django.urls import path
 from django.urls.conf import re_path
 from . import views
 from django.db import router
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 router = routers.DefaultRouter()
 router.register('projects', views.PostViewSet)
