@@ -66,7 +66,7 @@ def project(request, post):
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.user = request.user
-            post.save()
+            post.save
             return HttpResponseRedirect(reverse("home"))
     else:
         post_form = PostForm()
