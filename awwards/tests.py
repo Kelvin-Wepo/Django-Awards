@@ -8,7 +8,7 @@ from .models import Post,Rating
 
 class PostTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create(username='mary',email="mary@gmail.com")
+        self.user = User.objects.create(username='kwepo',email="kwepo@gmail.com")
         self.post = Post.objects.create(title='Django', photo='img.png', description='first project test',
                                         user=self.user, url="http://django.com")
 
